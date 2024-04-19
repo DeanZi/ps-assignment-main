@@ -1,22 +1,19 @@
 import React from 'react';
+import episodeIdToImage from '@/utils/episodeIdToImage';
 import '@/App.css'; 
 
-function MovieDetails({ movie, onFavoriteToggle, favorites, expandedImage, onCloseImage }) {
+function MovieDetails({ movie, onFavoriteToggle, favorites }) {
     if (!movie) return null;
   
+    const imageFileName = episodeIdToImage[movie.episode_id];
+    const imagePath = require(`../../images/${imageFileName}`);
+
     return (
-      <div>
-        <h2>{movie.title}</h2>
-        <button onClick={() => onFavoriteToggle(movie)}>
-          {favorites.some(fav => fav.episode_id === movie.episode_id) ? "Dislike" : "Like"}
-        </button>
-        <p><strong>Episode:</strong> {movie.episode_id}</p>
-        {/* Conditional rendering for expanded image */}
-        {expandedImage && (
-          <div className="expanded-image-overlay" onClick={onCloseImage}>
-            <img src={expandedImage} alt="Expanded Movie" className="expanded-image" />
-          </div>
-        )}
+      <div className="movie-details">
+        <img src={imagePath} alt={movie.title} className="expanded-image" />
+        <div className="favorite-mark" onClick={() => onFavoriteToggle(movie)}>
+          <i className={favorites.some(fav => fav.episode_id === movie.episode_id) ? "fas fa-star" : "far fa-star"}></i>
+        </div>
       </div>
     );
   }

@@ -5,7 +5,7 @@ import Loading from '@/components/Loading/Loading';
 import '@/App.css'; 
 
 
-function MovieList({ onMovieSelect, onImageClick }) {
+function MovieList({ onMovieSelect, onImageClick, favorites, onFavoriteToggle}) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,7 +30,11 @@ function MovieList({ onMovieSelect, onImageClick }) {
             <Loading message="Loading Movies..."/>
         ) : (
           movies.map(movie => (
-            <MovieItem key={movie.episode_id} movie={movie} onMovieSelect={onMovieSelect} onImageClick={onImageClick} />
+            <MovieItem key={movie.episode_id} movie={movie} 
+            onMovieSelect={onMovieSelect} onImageClick={onImageClick}
+            isFavorite={favorites.some(fav => fav.episode_id === movie.episode_id)} 
+            onFavoriteToggle={onFavoriteToggle} 
+            />
           ))
         )}
     </div>
