@@ -1,11 +1,16 @@
 import React from 'react';
+import episodeIdToImage from '@/utils/episodeIdToImage';
+import '@/App.css'; 
 
-function MovieItem({ movie, onMovieSelect }) {
+const images = require.context('../../images', true);
+
+function MovieItem({ movie, onMovieSelect, onImageClick }) {
+  const imageFileName = episodeIdToImage[movie.episode_id];
+  const imagePath = images(`./${imageFileName}`);
+
   return (
-    <div key={movie.episode_id}>
-      <button onClick={() => onMovieSelect(movie)}>
-        View {movie.title}
-      </button>
+    <div key={movie.episode_id} className="movie-item">
+      <img src={imagePath} alt={movie.title} onClick={() => {onMovieSelect(movie); onImageClick(movie)}} className="movie-item img"/>
     </div>
   );
 }

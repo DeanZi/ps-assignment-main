@@ -1,6 +1,7 @@
 import React from 'react';
+import '@/App.css'; 
 
-function MovieDetails({ movie, onFavoriteToggle, favorites }) {
+function MovieDetails({ movie, onFavoriteToggle, favorites, expandedImage, onCloseImage }) {
     if (!movie) return null;
   
     return (
@@ -10,6 +11,12 @@ function MovieDetails({ movie, onFavoriteToggle, favorites }) {
           {favorites.some(fav => fav.episode_id === movie.episode_id) ? "Dislike" : "Like"}
         </button>
         <p><strong>Episode:</strong> {movie.episode_id}</p>
+        {/* Conditional rendering for expanded image */}
+        {expandedImage && (
+          <div className="expanded-image-overlay" onClick={onCloseImage}>
+            <img src={expandedImage} alt="Expanded Movie" className="expanded-image" />
+          </div>
+        )}
       </div>
     );
   }

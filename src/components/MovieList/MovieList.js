@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { fetchMovies } from '@/services/api';
 import MovieItem from '@/components/MovieItem/MovieItem';
 import Loading from '@/components/Loading/Loading';
+import '@/App.css'; 
 
-function MovieList({ onMovieSelect }) {
+
+function MovieList({ onMovieSelect, onImageClick }) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,12 +25,12 @@ function MovieList({ onMovieSelect }) {
   }, []);
 
   return (
-    <div>
+    <div className="movie-list">
         {isLoading ? (
             <Loading message="Loading Movies..."/>
         ) : (
           movies.map(movie => (
-            <MovieItem key={movie.episode_id} movie={movie} onMovieSelect={onMovieSelect} />
+            <MovieItem key={movie.episode_id} movie={movie} onMovieSelect={onMovieSelect} onImageClick={onImageClick} />
           ))
         )}
     </div>

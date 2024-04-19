@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import MovieList from '@/components/MovieList/MovieList';
 import MovieDetails from '@/components/MovieDetails/MovieDetails';
+import episodeIdToImage from '@/utils/episodeIdToImage';
 
 function App() {
   const initialFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
   const [favorites, setFavorites] = useState(initialFavorites);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [expandedImage, setExpandedImage] = useState(null); // New state for expanded image
+  const images = require.context('./images', true);
+
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
+  }, [selectedMovie, favorites]);
 
   const handleFavorite = (movie) => {
     if (favorites.some(fav => fav.episode_id === movie.episode_id)) {
@@ -23,10 +27,21 @@ function App() {
     setSelectedMovie(movie);
   }
 
+  function handleImageClick(movie) {
+    const imageFileName = episodeIdToImage[movie.episode_id];
+    const imagePath = images(`./${imageFileName}`);
+    setExpandedImage(imagePath);
+  }
+
+  function handleCloseImage() {
+    setExpandedImage(null);
+  }
+
   return (
     <div className="App">
-      <MovieDetails movie={selectedMovie} favorites={favorites} onFavoriteToggle={handleFavorite}/>
-      <MovieList onMovieSelect={handleMovieSelect}/>
+      <MovieDetails movie={selectedMovie} favorites={favorites} onFavoriteToggle={handleFavorite} 
+      expandedImage={expandedImage} onCloseImage={handleCloseImage}/>
+      <MovieList onMovieSelect={handleMovieSelect} onImageClick={handleImageClick}/>
     </div>
   );
 
