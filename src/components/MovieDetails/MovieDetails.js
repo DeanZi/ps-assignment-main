@@ -15,7 +15,8 @@ function MovieDetails({ movie, onFavoriteToggle, favorites }) {
           <img src={imagePath} alt={movie.title} className="expanded-image" />
           <div className="movie-title">
             {movie.title}
-            {/* Render star icon */}
+          </div>
+          <div className="movie-title">
             <FaStar color={favorites.some(fav => fav.episode_id === movie.episode_id) ? "yellow" : "white"} onClick={() => onFavoriteToggle(movie)} />
           </div>
         </div>
