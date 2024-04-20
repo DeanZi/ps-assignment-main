@@ -53,9 +53,7 @@ function App() {
       <div className="backdrop" style={{ backgroundImage: `url(${expandedImage})` }}></div>
       <MovieDetails movie={selectedMovie} favorites={favorites} onFavoriteToggle={handleFavorite} 
       expandedImage={expandedImage} onCloseImage={handleCloseImage}/>
-      <MovieList onMovieSelect={handleMovieSelect} onImageClick={handleImageClick} 
-      favorites={favorites} onFavoriteToggle={handleFavorite} 
-      />
+      <MovieList onMovieSelect={handleMovieSelect} onImageClick={handleImageClick}/>
     </div>
   );
 

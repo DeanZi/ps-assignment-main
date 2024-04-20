@@ -5,7 +5,7 @@ import Loading from '@/components/Loading/Loading';
 import '@/App.css'; 
 
 
-function MovieList({ onMovieSelect, onImageClick, favorites, onFavoriteToggle}) {
+function MovieList({ onMovieSelect, onImageClick }) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,9 +33,7 @@ function MovieList({ onMovieSelect, onImageClick, favorites, onFavoriteToggle}) 
         ) : (
           movies.map(movie => (
             <MovieItem key={movie.episode_id} movie={movie} 
-            onMovieSelect={onMovieSelect} onImageClick={onImageClick}
-            isFavorite={favorites.some(fav => fav.episode_id === movie.episode_id)} 
-            onFavoriteToggle={onFavoriteToggle} 
+            onMovieSelect={onMovieSelect} onImageClick={onImageClick} 
             />
           ))
         )}
