@@ -14,6 +14,7 @@ function MovieItem({ movie, onMovieSelect, onImageClick }) {
       <div className="movie-title">
         {movie.title}
       </div>
+      <div className="blur-behind-title"></div>
     </div>
   );
 }
