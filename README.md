@@ -81,6 +81,6 @@ Please notice the the SWAPI API might take some time to respond
 After a short dive in and inspection of the button functionality, I have realized that `onMovieSelect` function was called without the `movie` argument. I have added the missing argument.
    - Then, a press on the `View <MOVIE-NAME>` button exposed the `like/dislike` functionality, however when trying to use it, an error with the following message was thrown to the browser - `TypeError: onFavoriteToggle is not a function`. After further inspection I have understood that the property is not being passed in the `MovieDetails` tag that is being returned in `App.js`. Adding the property to invoke `handleFavorite` in `App.js` solved this issue.
    
-3. **Styling:** 
-   Follow the original steps of [Getting Started](#getting-started) to see my modifed styling.
+3. **Styling:**
+   - Follow the original steps of [Getting Started](#getting-started) to see my modifed styling.
 
