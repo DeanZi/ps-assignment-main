@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     // Set default selection to Episode 1
-    const defaultEpisode = { episode_id: 1, title: "Episode I: The Phantom Menace" };
+    const defaultEpisode = { episode_id: 1, title: "The Phantom Menace" };
     setSelectedMovie(defaultEpisode);
 
     // Set default expanded image to Episode 1 image

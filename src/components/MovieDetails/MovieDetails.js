@@ -16,7 +16,7 @@ function MovieDetails({ movie, onFavoriteToggle, favorites }) {
           <div className="movie-title">
             {movie.title}
           </div>
-          <div className="movie-title">
+          <div className="favorite-mark">
             <FaStar color={favorites.some(fav => fav.episode_id === movie.episode_id) ? "yellow" : "white"} onClick={() => onFavoriteToggle(movie)} />
           </div>
         </div>
