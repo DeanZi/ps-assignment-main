@@ -1,6 +1,6 @@
 import React from 'react';
 import episodeIdToImage from '@/utils/episodeIdToImage';
-import { FaStar } from 'react-icons/fa'; // Import star icon
+import { LuStar } from "react-icons/lu";
 import '@/App.css'; 
 
 function MovieDetails({ movie, onFavoriteToggle, favorites }) {
@@ -19,7 +19,7 @@ function MovieDetails({ movie, onFavoriteToggle, favorites }) {
             ))}
           </div>
           <div className="favorite-mark">
-            <FaStar color={favorites.some(fav => fav.episode_id === movie.episode_id) ? "yellow" : "transparent"} onClick={() => onFavoriteToggle(movie)} />
+            <LuStar color="white" fill={favorites.some(fav => fav.episode_id === movie.episode_id) ? "yellow" : "transparent"} onClick={() => onFavoriteToggle(movie)}/>
           </div>
         </div>
       </div>
