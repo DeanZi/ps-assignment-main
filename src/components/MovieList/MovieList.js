@@ -13,7 +13,9 @@ function MovieList({ onMovieSelect, onImageClick, favorites, onFavoriteToggle}) 
     async function getMovies() {
       try {
         const data = await fetchMovies();
-        setMovies(data);
+        // Sort the movies by episode_id
+        const sortedMovies = data.sort((a, b) => a.episode_id - b.episode_id);
+        setMovies(sortedMovies);
       } catch (error) {
         console.error("Failed fetching movies:", error);
       } finally {
