@@ -24,7 +24,7 @@ These instructions will help you set up the project locally on your machine.
 
 2. Navigate to the project directory:
    ```bash
-   cd star-wars-favorites
+   cd ps-assignment-main
    ```
 
 3. Install the dependencies:
@@ -71,3 +71,13 @@ Please notice the the SWAPI API might take some time to respond
     - Once finished, upload the project to github.
     - Try to clone your code and run it - make sure all works after cloning
     - Make sure the site works as expected
+  
+
+## Solutions
+
+1. **Debugging:**
+   When started the application, after loading, there was a simple buttons list, that each had the text "View <MOVIE-NAME>" on it. When trying to press any of them I encountered the first issue, they were unresponsive. After a short dive in and inspection of the button functionality, I have realized that 'onMovieSelect' function was called without the 'movie' argument. So I added the missing argument. Then, a press on the button exposed the "like/dislike" functionality, but when trying to use it, another error occured, now with a message - 'TypeError: onFavoriteToggle is not a function', and after further inspection I understood that the property in not being passed in the MovieDetails tag that is being returned in App.js. Adding the property to invoke 'handleFavorite' in App.js solved this issue.
+   
+2. **Styling:** 
+   Follow the same step of getting started the original app, to see my modifed styling.
+
