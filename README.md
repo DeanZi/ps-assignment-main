@@ -10,6 +10,7 @@ This React application fetches movies from the Star Wars API (SWAPI) and lets us
     - [Installing](#installing)
   - [SWAPI Documentation](#swapi-documentation)
   - [Tasks](#tasks)
+  - [Solutions](#solutions)
 
 
 
@@ -76,8 +77,10 @@ Please notice the the SWAPI API might take some time to respond
 ## Solutions
 
 1. **Debugging:**
-   When started the application, after loading, there was a simple buttons list, that each had the text "View <MOVIE-NAME>" on it. When trying to press any of them I encountered the first issue, they were unresponsive. After a short dive in and inspection of the button functionality, I have realized that 'onMovieSelect' function was called without the 'movie' argument. So I added the missing argument. Then, a press on the button exposed the "like/dislike" functionality, but when trying to use it, another error occured, now with a message - 'TypeError: onFavoriteToggle is not a function', and after further inspection I understood that the property in not being passed in the MovieDetails tag that is being returned in App.js. Adding the property to invoke 'handleFavorite' in App.js solved this issue.
+   - First issue occured when starting the application, after loading, a simple buttons list was presented, each button had the text `View <MOVIE-NAME>` on it. When trying to press any of them, they were unresponsive. 
+After a short dive in and inspection of the button functionality, I have realized that `onMovieSelect` function was called without the `movie` argument. I have added the missing argument.
+   - Then, a press on the `View <MOVIE-NAME>` button exposed the `like/dislike` functionality, however when trying to use it, an error with the following message was thrown to the browser - `TypeError: onFavoriteToggle is not a function`. After further inspection I have understood that the property is not being passed in the `MovieDetails` tag that is being returned in `App.js`. Adding the property to invoke `handleFavorite` in `App.js` solved this issue.
    
-2. **Styling:** 
-   Follow the same step of getting started the original app, to see my modifed styling.
+3. **Styling:** 
+   Follow the original steps of [Getting Started](#getting-started) to see my modifed styling.
 
