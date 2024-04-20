@@ -19,8 +19,8 @@ function MovieDetails({ movie, onFavoriteToggle, favorites }) {
             ))}
           </div>
           <div className="favorite-mark">
-            <LuStar color="white" size={20} fill={favorites.some(fav => fav.episode_id === movie.episode_id) ? "yellow" : "transparent"} 
-            onClick={() => onFavoriteToggle(movie)} style={{ transform: 'rotate(15deg)' }} />
+            <LuStar color="white" fill={favorites.some(fav => fav.episode_id === movie.episode_id) ? "yellow" : "transparent" } 
+            onClick={() => onFavoriteToggle(movie)} className="star-icon" />
           </div>
         </div>
       </div>

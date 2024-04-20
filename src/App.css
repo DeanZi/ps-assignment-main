@@ -17,22 +17,19 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1%;
   width: 100%;
-  padding: 0px;
   box-sizing: border-box;
   overflow-x: auto;
-  margin: 0;
-  background-color: transparent;
   bottom: 0; /* Ensures it starts from the top of the viewport */
 }
 
 .movie-item {
   position: relative;
-  width: 170px;
-  height: 220px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  width: 12.15%;
+  height: 30vh;
+  margin-bottom: 2%;
+  border-radius: 1%;
   overflow: hidden;
 }
 
@@ -40,38 +37,42 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 5%;
 }
 
 .movie-item .movie-title {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   bottom: 10%;
   left: 0;
   right: 0;
   color: white;
-  padding: 5px;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.85vw;
   font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
-  filter: blur(0.3px); /* Apply a blur filter */
+  background-color: rgba(0, 0, 0, 0.08); /* Semi-transparent background */
 }
 
 .movie-details {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   max-width: 100%;
-  max-height: 50%;
-  left: 120px;
-  right: 200px;
-  top: 30px;
+  max-height: 60%;
+  left: 8.5%;
+  right: 14%;
+  top: 3%;
 }
 
 .movie-image-container {
   position: relative;
   width: 100%;
   object-fit: cover;
-  left: 40px; 
-  right: 40px; 
+  left: 3.6%; 
+  right: 10%; 
 }
 
 .expanded-image {
@@ -79,21 +80,32 @@
   height: 60vh;
   object-fit: cover;
   object-position: center top; 
-  border-radius: 10px;
-  z-index: 1; 
+  margin-bottom: 2%;
+  border-radius: 4%;
 }
 
 .movie-image-container .movie-title {
   position: absolute; 
-  top: 120px; 
-  left: 170px; 
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 27%; 
+  left: 16%; 
   color: white;
-  font-size: 38px;
+  font-size: 2.9vw;
   font-weight: bold;
 }
 
 .favorite-mark {
   position: absolute;
-  top: 130px;
-  left: 350px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 29%;
+  left: 32%;
+}
+
+.star-icon{
+  transform: rotate(15deg);
+  width: 1.6vw;
+  height: 1.6vw;
 }
